@@ -25,6 +25,7 @@ export default function App() {
     })
   }
   return (
+
 <View style={styles.container}>
 <Getsum/>
 
@@ -34,7 +35,7 @@ export default function App() {
 
 const styles =StyleSheet.create({
   container:{
-    backgroundColor:'red',
+    backgroundColor:'#fff',
     flex:1,
   paddingHorizontal:20
   },

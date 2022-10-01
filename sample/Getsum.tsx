@@ -1,27 +1,22 @@
 import { useState } from "react"
-import { View,Text, TextInput ,StyleSheet } from "react-native"
-//import Icon from 'react-native-vector-icons/FontAwesome';
-//import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import { View,Text, TextInput ,StyleSheet, NativeAppEventEmitter } from "react-native"
+import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import Navigator from './Nav'
 
-
-
-   /* type GetsumProps ={
-        namee :string
-        
-    }
-   **/
 
 export const Getsum = () => {
+
     const [search, setsearch] = useState("")
     const handlechange=()=>{
         setsearch(search)
     }
     return (
-        <View>
-            <View>
-  {/*      <Icon name="ios-book"  size ={30}color="yellow" />
-            <FontAwesome5 name={'comments'} size={100}/>*/}
-
+        <View style={styles.container}>
+            <View style={styles.body}>
+   <Icon name={"book"}  size ={30}color="yellow" />
+            <FontAwesome5 name={'home'} size={100} />
+            <Navigator/>
                 <Text>Home</Text>
                 <Text>getw</Text>
             </View>
@@ -34,19 +29,17 @@ export const Getsum = () => {
     )
 }
 
-
 const styles =StyleSheet.create({
     container:{
       backgroundColor:'black',
-      flex:1,
+      flexDirection:'column',
     paddingHorizontal:20
     },
     body:{
-      backgroundColor:'yellow',
+      backgroundColor:'green',
       padding:40,
       marginTop:5,
       fontSize:20,
-  
     },
     bold:{
       fontWeight:'bold',
@@ -54,7 +47,5 @@ const styles =StyleSheet.create({
       borderRadius:12,
       width:150,
       height:30
-  
-    }
+      }
   })
-  
