@@ -2,8 +2,7 @@ import { useState } from "react"
 import { View,Text, TextInput ,StyleSheet, NativeAppEventEmitter } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import {NavigationContainer} from 'react-navigation/native'
-//import Nav from './Nav'
+import {Nav} from './Nav'
 import {Formik} from 'formik'
 
 export const Getsum = () => {
@@ -14,6 +13,7 @@ export const Getsum = () => {
     }
     return (
         <View style={styles.container}>
+            <Nav/>
             <Formik
             initialValues={{titles:''}}
             onSubmit={(values)=>{}}

@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {  Text, View, StyleSheet,Button,TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 //import {Getsum} from './Getsum';
 import {Getsum} from "../sample/Getsum";
+import {createStackNavigator} from  '@react-navigation/stack'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {createBottomTabNavigator} from  '@react-navigation/bottom-tabs'
+//import { createAppContainer, createNavigationContainer } from "react-navigation";
+import { NavigationContainer } from '@react-navigation/native';
+import Home from './route/Home';
+import Contact from "./route/Contact";
 
 
+
+const AuthStack= createStackNavigator();
+//const AuthStack= createBottomTabNavigator();
 export default function App() {
   const [name1, setname1] = useState([
     {name: 'ebun ', key:'1'},
@@ -24,12 +35,22 @@ export default function App() {
       )
     })
   }
+  /* */
+  useEffect(() => {
+   console.log("why nah")
+  },)
   return (
-
-<View style={styles.container}>
-<Getsum/>
-
- </View>
+    <View style={styles.container}>
+      <NavigationContainer>
+    <AuthStack.Navigator screenOptions={{headerShown:false}}>
+      <AuthStack.Screen name="Homeu" component={Home} options={{title:"Home" }}
+      />
+      <AuthStack.Screen name="Contact" component={Contact}  options={{title:"Home"}}
+    />
+    </AuthStack.Navigator>
+  </NavigationContainer>
+  <Text>heloufryhh</Text>
+  </View>
     );
 }
 

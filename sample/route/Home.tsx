@@ -9,8 +9,8 @@ const Home = ({navigation}) => {
   }
     return (
       <View>
-          <Text>Home</Text>
-          <Button title='click on me' onPress={pressHandle} />
+          <Text>Homet</Text>
+          <Button title='click on me' onPress={()=>{navigation.navigate('Contact')}} />
       </View>
         )
 }
