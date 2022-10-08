@@ -13,13 +13,6 @@ export const Getsum = () => {
     }
     return (
         <View style={styles.container}>
-            <Nav/>
-            <Formik
-            initialValues={{titles:''}}
-            onSubmit={(values)=>{}}
-            >
-
-            </Formik>
             <View style={styles.body}>
    <Icon name={"book"}  size ={30}color="yellow" />
             <FontAwesome5 name={'home'} size={100} />

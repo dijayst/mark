@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {  Text, View, StyleSheet,Button,TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 //import {Getsum} from './Getsum';
-import {Getsum} from "../sample/Getsum";
+import { Getsum } from './Getsum';
+//import Getsum from "../sample/Getsum";
 import {createStackNavigator} from  '@react-navigation/stack'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -10,12 +11,16 @@ import {createBottomTabNavigator} from  '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './route/Home';
 import Contact from "./route/Contact";
-
+type homeprops={
+  name:string,
+  color:string,
+  size:number
+}
 
 
 const AuthStack= createStackNavigator();
 //const AuthStack= createBottomTabNavigator();
-export default function App() {
+export default function App(props:homeprops) {
   const [name1, setname1] = useState([
     {name: 'ebun ', key:'1'},
     {name: 'dushen', key:'2'},
@@ -42,13 +47,16 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-    <AuthStack.Navigator screenOptions={{headerShown:false}}>
-      <AuthStack.Screen name="Homeu" component={Home} options={{title:"Home" }}
-      />
-      <AuthStack.Screen name="Contact" component={Contact}  options={{title:"Home"}}
+    <AuthStack.Navigator screenOptions={{headerShown:true}}>
+      <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
+      <AuthStack.Screen name="Getsum" component={Getsum} options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
+    
+      <AuthStack.Screen name="Contact" component={Contact}  options={{tabBarIcon:()=>(<Icon name={"book"} color="yellow" size={35}/>)}}
     />
     </AuthStack.Navigator>
+    
   </NavigationContainer>
+  
   <Text>heloufryhh</Text>
   </View>
     );
