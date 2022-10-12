@@ -13,6 +13,7 @@ export const Getsum = () => {
     }
     return (
         <View style={styles.container}>
+            
             <View style={styles.body}>
    <Icon name={"book"}  size ={30}color="yellow" />
             <FontAwesome5 name={'home'} size={100} />

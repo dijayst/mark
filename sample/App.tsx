@@ -6,11 +6,13 @@ import { Getsum } from './Getsum';
 import {createStackNavigator} from  '@react-navigation/stack'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {createBottomTabNavigator} from  '@react-navigation/bottom-tabs'
+//import {createBottomTabNavigator, createMaterTopTabNavigator} from  '@react-navigation/bottom-tabs'
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs"
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './route/Home';
 import Contact from "./route/Contact";
+import SearchBar from './route/SearchBar';
 type homeprops={
   name:string,
   color:string,
@@ -18,9 +20,10 @@ type homeprops={
 }
 
 
-const AuthStack= createStackNavigator();
+const AuthStack= createMaterialTopTabNavigator();
+const AuthStacck= createStackNavigator();
 //const AuthStack= createBottomTabNavigator();
-export default function App(props:homeprops) {
+export default function App({props:homeprops},{route,navigation}) {
   const [name1, setname1] = useState([
     {name: 'ebun ', key:'1'},
     {name: 'dushen', key:'2'},
@@ -46,17 +49,12 @@ export default function App(props:homeprops) {
   },)
   return (
     <View style={styles.container}>
-      <NavigationContainer>
-    <AuthStack.Navigator screenOptions={{headerShown:true}}>
-      <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
-      <AuthStack.Screen name="Getsum" component={Getsum} options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
-    
-      <AuthStack.Screen name="Contact" component={Contact}  options={{tabBarIcon:()=>(<Icon name={"book"} color="yellow" size={35}/>)}}
-    />
-    </AuthStack.Navigator>
-    
-  </NavigationContainer>
-  
+<NavigationContainer>
+    <AuthStack.Navigator >
+      <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<><Icon name={"home"} color="yellow" size={35}/><SearchBar/></>)}}/>
+      <AuthStack.Screen name="Contact" component={Contact}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
+     </AuthStack.Navigator>
+    </NavigationContainer>
   <Text>heloufryhh</Text>
   </View>
     );
@@ -95,4 +93,10 @@ const styles =StyleSheet.create({
   )
 })}
 </ScrollView>
+
+
+          <AuthStacck.Navigator>
+      <AuthStacck.Screen  name="maincategory" component={Home}/>
+          </AuthStacck.Navigator>
+        
 */
