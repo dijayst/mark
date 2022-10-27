@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { View,Text, TextInput ,StyleSheet, NativeAppEventEmitter } from "react-native"
+import { View,Text, TextInput ,StyleSheet, TouchableHighlight } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import {Nav} from './Nav'
 import {Formik} from 'formik'
+import {Avatar,Button} from 'react-native-paper'
 
 export const Getsum = () => {
 
@@ -13,26 +14,16 @@ export const Getsum = () => {
     }
     return (
         <View style={styles.container}>
-            
-            <View style={styles.body}>
-   <Icon name={"book"}  size ={30}color="yellow" />
-            <FontAwesome5 name={'home'} size={100} />
-            <Text>whyt</Text>
-                <Text>Home</Text>
-                <Text>getw</Text>
-            </View>
-            <View>
                 <TextInput
                 placeholder="search"
                 onChangeText={handlechange}/>
-            </View>
         </View>
     )
 }
 
 const styles =StyleSheet.create({
     container:{
-      backgroundColor:'black',
+      backgroundColor:'white',
       flexDirection:'column',
     paddingHorizontal:20
     },

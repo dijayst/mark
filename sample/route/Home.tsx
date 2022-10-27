@@ -10,6 +10,7 @@ import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import Contact from './Contact'
+import { Getsum } from '../Getsum'
 
 const namelist=[{image:[],
   name:"",
@@ -42,20 +43,29 @@ const Home = ({navigation}) => {
     return (
       <View>
         
-          <Text>
+          <Text style={styles.category}>
             Main Category
           </Text>
-        <Text>hrujhgs</Text>
+        <Text>helo</Text>
           <Button title="homeg"/>
-          <Button title='click on me' onPress={()=>{navigation.navigate('Contact')}} />
+          <Button title='click on me' onPress={()=>{navigation.navigate('Getsum')}} />
+      
+          <Button title='click me' onPress={()=>{alert("welcome")}} />
+      
+      <Getsum/>
+
       </View>
         )
 }
 
 const styles=StyleSheet.create({
+  container:{
+    backgroundColor:"white"
+  },
   category:{
     marginBottom:50,
-    marginLeft:60
+    marginLeft:60,
+  fontSize:30,
   }
 })
 export default Home

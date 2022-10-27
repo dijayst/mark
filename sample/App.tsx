@@ -50,9 +50,16 @@ export default function App({props:homeprops},{route,navigation}) {
   return (
     <View style={styles.container}>
 <NavigationContainer>
-    <AuthStack.Navigator >
+  <Getsum/>
+  <Text>
+    hwlfn
+  </Text>
+  <AuthStack.Navigator >
       <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<><Icon name={"home"} color="yellow" size={35}/><SearchBar/></>)}}/>
+      <AuthStack.Screen name="Getsum" component={Getsum}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
+    
       <AuthStack.Screen name="Contact" component={Contact}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
+     
      </AuthStack.Navigator>
     </NavigationContainer>
   <Text>heloufryhh</Text>
