@@ -16,10 +16,10 @@ const namelist=[{image:[],
   name:"",
  review:""}]
 
-      type nameprop={name:{image:string,
+    /*  type nameprop={name:{image:string,
         name:string,
        review:string}[]}      
-
+*/
 
        
 const AuthStacck= createStackNavigator();

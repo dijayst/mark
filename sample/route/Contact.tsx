@@ -4,7 +4,7 @@ import axios from "axios";
 //let myArray:string[]=[];
 const Contact = () => {
   const [myArray, setmyArray] = useState([])
-
+/*
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts").then(res=>{
       console.log(res)
@@ -12,12 +12,12 @@ const Contact = () => {
       setmyArray(res.data)
     })
     .catch(err=>{console.log(err)})
-  })
+  })*/
   console.log("hello")
     return (
         
       <View>
-        <ScrollView>
+     {/*   <ScrollView>
           {myArray.map((item)=>{
      return(
        <View key={item.id}>
@@ -28,7 +28,8 @@ const Contact = () => {
        </View>
      )
           })}
-        </ScrollView>
+        </ScrollView>*/}
+        <Text>{myArray}</Text>
           <Text>Contact</Text>
       </View>
     )

@@ -1,0 +1,14 @@
+[
+    {"id":1,
+  "title":"helo",
+  "image":require("./image/images(1).jpg")  },
+  {"id":2,
+    "title":"helo",
+    "image":require("./image/images(1).jpg")  },
+    {"id":3,
+    "title":"helo",
+     "image":require("./image/images(1).jpg")  },
+     {"id":4,
+     "title":"helo",
+     "image":require("./image/images(1).jpg")  }
+    ]
