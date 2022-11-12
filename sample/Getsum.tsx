@@ -17,13 +17,14 @@ export const Getsum = () => {
                 <TextInput
                 placeholder="search"
                 onChangeText={handlechange}/>
+                <Icon name={"star"} color="yellow" size={20}/>
         </View>
     )
 }
 
 const styles =StyleSheet.create({
     container:{
-      backgroundColor:'white',
+      backgroundColor:'red',
       flexDirection:'column',
     paddingHorizontal:20
     },
