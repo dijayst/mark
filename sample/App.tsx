@@ -7,7 +7,7 @@ import {createStackNavigator} from  '@react-navigation/stack'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {createBottomTabNavigator} from  '@react-navigation/bottom-tabs'
-//import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs"
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs"
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './route/Home';
@@ -21,7 +21,7 @@ type homeprops={
 
 //const AuthStack=createBottomTabNavigator();
 //const AuthStack= createMaterialTopTabNavigator();
-//const AuthStacck= createStackNavigator();
+//const AuthStack= createStackNavigator();
 const AuthStack= createBottomTabNavigator();
 export default function App({props:homeprops},{route,navigation}) {
   const [name1, setname1] = useState([
@@ -50,9 +50,9 @@ export default function App({props:homeprops},{route,navigation}) {
   return (
     <View style={styles.container}>
 <NavigationContainer>
-  <Getsum/>
+
    <AuthStack.Navigator >
-      <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
+      <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="green" size={35}/>)}}/>
       <AuthStack.Screen name="Getsum" component={Getsum}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
     
       <AuthStack.Screen name="Contact" component={Contact}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>

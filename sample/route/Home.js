@@ -11,7 +11,7 @@ import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import Contact from './Contact'
-import { Getsum } from '../Getsum'
+//import { Getsum } from '../Getsum'
 
 import { Item } from 'react-native-paper/lib/typescript/components/List/List'
 
@@ -48,20 +48,19 @@ const Home = ({navigation}) => {
   navigation.push('Contact')
   }
     return (
-      <View>
+      <View style={styles.container}>
        <ScrollView>
-                   <Text style={styles.category}>
-            Main Category
-          </Text>
           <View style={styles.jsvarra}>
           {
           print.map((item)=>{return(
-            <TouchableOpacity style={styles.jstouch} key={item.id}>
+            <TouchableOpacity  style={styles.jstouch} key={item.id}>
               <Image source={item.image}/>
-      
-              <Text style={styles.text}>{item.price}</Text>
-              <Text style={styles.text}>{item.title}</Text>
-             <View style={styles.jsvarra}>
+              <Image source={require("../image/images1.jpg")} style={styles.jsimage}/>
+              <View style={styles.text}>
+              <Text >{item.price}</Text>
+              <Text >{item.title}</Text>
+            </View>
+             <View style={styles.jsicon}>
               <Icon  name={item.icon} color="yellow" size={20}/>
               <Icon name={item.icon} color="green" size={20}/>
               <Icon name={item.icon} color="green" size={20}/>
@@ -69,13 +68,6 @@ const Home = ({navigation}) => {
             </TouchableOpacity>
           )})
         }</View>
-        <Text>helo</Text>
-          <Button title="homeg"/>
-          <Button title='click on me' onPress={()=>{navigation.navigate('Getsum')}} />
-      <Image source={require("../image/images1.jpg")}/>
-          <Button title='click me' onPress={()=>{alert("welcome")}} />
-      
-      <Getsum/>
 </ScrollView>
       </View>
         )
@@ -94,8 +86,14 @@ const styles=StyleSheet.create({
 display:"flex",
 flexWrap:"wrap",
 flexDirection:"row",
-justifyContent:"center"
+justifyContent:"center",
 },
+jsicon:{
+  display:"flex",
+  flexWrap:"wrap",
+  flexDirection:"row",
+  justifyContent:"center",
+  },
 jsicon:{
 display:"flex",
 flexDirection:"row",
@@ -106,15 +104,25 @@ backgroundColor:"red",
 width:120,
 height:120,
 borderRadius:5,
-marginTop:4,
-marginLeft:15,
-padding:20,
+marginTop:17,
+marginLeft:17,
+padding:5,
 
   },
+  jsimage:{
+    width:114,
+    height:70,
+    borderRadius:5,
+    margin:-2,
+  },
   text:{
-    justifyContent:"center",
     backgroundColor:"yellow",
+    height:45,
+    borderRadius:5,
+    margin:-2,
+    width:114,
+    marginTop:3,
+  },
 
-  }
 })
 export default Home
