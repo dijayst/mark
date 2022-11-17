@@ -4,25 +4,31 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import {Nav} from './Nav'
 import {Formik} from 'formik'
 import JSON from "./db.json"
+import {createStackNavigator} from  '@react-navigation/stack'
 import { View,Text,ScrollView, TextInput ,StyleSheet, Button, TouchableOpacity,Image } from "react-native"
 
 
-export const Getsum = () => {
+export const Getsum = ({navigation}) => {
   const print=JSON
  
     const [search, setsearch] = useState("")
     const handlechange=()=>{
         setsearch(search)
     }
+
+    
+  //const pressHandle=()=>{    navigation.navigate('Contact')
+  //navigation.push('Contact')}
+
     return (
         <View style={styles.container}>
                 <ScrollView>
           <View style={styles.jsvarra}>
           {
           print.map((item)=>{return(
-            <TouchableOpacity  style={styles.jstouch} key={item.id}>
+            <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>navigation.navigate("Contact",item)}>
               <Image source={item.image}/>
-              <Image source={require("../image/images1.jpg")} style={styles.jsimage}/>
+              <Image source={require("./image/images14.jpg")} style={styles.jsimage}/>
               <View style={styles.text}>
               <Text >{item.price}</Text>
               <Text >{item.title}</Text>
@@ -33,8 +39,9 @@ export const Getsum = () => {
               <Icon name={item.icon} color="green" size={20}/>
            </View>
             </TouchableOpacity>
-          )})
-        }</View>
+          )})}
+          <View><Text>recently viewed</Text></View>
+        </View>
 </ScrollView>
       
         </View>

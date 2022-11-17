@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView } from "react-native"
 import axios from "axios";
+import { NavigationContainer } from '@react-navigation/native';
 //let myArray:string[]=[];
-const Contact = () => {
+const Contact = ({navigation}) => {
   const [myArray, setmyArray] = useState([])
 /*
   useEffect(() => {
@@ -14,6 +15,7 @@ const Contact = () => {
     .catch(err=>{console.log(err)})
   })*/
   console.log("hello")
+  
     return (
         
       <View>
@@ -29,7 +31,9 @@ const Contact = () => {
      )
           })}
         </ScrollView>*/}
+
         <Text>{myArray}</Text>
+        <Text>{navigation.getParam("title")}</Text>
           <Text>Contact</Text>
       </View>
     )
