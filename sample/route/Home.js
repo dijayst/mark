@@ -34,6 +34,14 @@ const Home = ({navigation}) => {
   const handleclick=()=>{
     setclick(!click)
   }
+  const [sneaker, setsneaker] = useState(false)
+  const handlessneaker=()=>{
+    setsneaker(!sneaker)
+  }
+  const [sandle, setsandle] = useState(false)
+  const handlessandle=()=>{
+    setsneaker(!sandle)
+  }
   const [home, sethome] = useState(namelist)
   const print=JSON
   const heels=[{
@@ -42,6 +50,24 @@ const Home = ({navigation}) => {
     id:2,image:require("../image/images14.jpg")
   },{
     id:3,image:require("../image/images14.jpg")
+  }]
+
+  
+  const sneakers=[{
+    id:1,image:require("../image/images13.jpg")
+  },{
+    id:2,image:require("../image/images13.jpg")
+  },{
+    id:3,image:require("../image/images13.jpg")
+  }]
+
+  
+  const sandles=[{
+    id:1,image:require("../image/images12.jpg")
+  },{
+    id:2,image:require("../image/images12.jpg")
+  },{
+    id:3,image:require("../image/images12.jpg")
   }]
   //const handleclick=()=>{heels.map((item)=>{(<TouchableOpacity key={item.id}><Image source={item.image} /></TouchableOpacity>)})
     //setclick(!click)
@@ -67,18 +93,44 @@ const Home = ({navigation}) => {
     return (
       <View style={styles.container}>
         <View><TextInput placeholder="search for shoes"/></View>
-        <View>
-<Button title="heels" onPress={handleclick}/>
+        <View style={styles.minibtn}>
+          
+<Button style={styles.minibutton} title="heels"  color="coral" onPress={handleclick}/>
+<Button style={styles.minibutton} title="sneaker" color="coral" onPress={handlessneaker}/>
+<Button style={styles.minibutton} title="sandle" color="coral" onPress={handlessandle}/>
+</View >
 
-</View>
+  <View style={styles.imageview}>
 {click?
 <FlatList 
 keyExtractor={(item)=>item.id}
+style={styles.imagev}
 data={heels}
  renderItem={({item})=>{return(<TouchableOpacity>
    <Image source={item.image}/>
  </TouchableOpacity>)}}/>
  :null}
+
+{sneaker?
+<FlatList 
+keyExtractor={(item)=>item.id}
+style={styles.imagev}
+data={sneakers}
+ renderItem={({item})=>{return(<TouchableOpacity>
+   <Image source={item.image}/>
+ </TouchableOpacity>)}}/>
+ :null}
+
+{sandle?
+<FlatList 
+keyExtractor={(item)=>item.id}
+data={sandles}
+style={styles.imagev}
+ renderItem={({item})=>{return(<TouchableOpacity>
+   <Image source={item.image}/>
+ </TouchableOpacity>)}}/>
+ :null}
+</View>
  <View>
    <Text>recent</Text>
  </View>
@@ -137,6 +189,34 @@ padding:5,
     width:114,
     marginTop:3,
   },
+minibtn:{
+flexDirection:"row",
+width:199,
+height:40,
+backgroundColor:"red"
+},
+minibutton:{
+width:40,
+height:40,
+borderRadius:15,
+marginLeft:100,
+padding:10,
+fontSize:100,
 
+},
+imageview:{
+  backgroundColor:"red",
+  flexDirection:"column",
+  marginTop:20,
+  height:250,
+  width:280,
+},
+
+imagev:{
+  width:240,
+  height:230,
+  borderRadius:5,
+
+}
 })
 export default Home

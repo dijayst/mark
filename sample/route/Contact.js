@@ -30,7 +30,7 @@ const Contact = ({navigation}) => {
        </View>
      )
           })}
-        </ScrollView>*/}
+        </ScrollView>*/}hty
 
         <Text>{myArray}</Text>
         <Text>{navigation.getParam("title")}</Text>
