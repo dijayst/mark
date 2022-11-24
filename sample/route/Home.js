@@ -1,7 +1,7 @@
 import { Formik } from 'formik'
 import JSON from "../db.json"
 import React, { useState,useEffect } from 'react'
-import { View,Text,ScrollView, TextInput ,StyleSheet,FlatList, Button, TouchableOpacity,Image } from "react-native"
+import { View,Text,ScrollView, TextInput ,StyleSheet,FlatList, Button, TouchableOpacity,Image, Dimensions } from "react-native"
 //import { ScrollView } from 'react-native-gesture-handler'
 import {createStackNavigator} from  '@react-navigation/stack'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -11,11 +11,15 @@ import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import Contact from '../route/Contact'
-//import images1 from '../image/images1
+//import images1 from '../image/images1'
+//import images4 from '../image/images4'
+//import images6 from '../image/images6'
+
 //import { Getsum } from '../Getsum'
 
 
 import { Item } from 'react-native-paper/lib/typescript/components/List/List'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 const namelist=[{image:[],
   name:"",
@@ -30,6 +34,9 @@ const namelist=[{image:[],
 const AuthStacck= createStackNavigator();
 //const AuthStack= createBottomTabNavigator();
 const Home = ({navigation}) => {
+ // const WIDTH=Dimensions.get("window").width;
+  //const HEIGHT=Dimensions.get("window").height;
+const {width,height}=Dimensions.get("window");
   const [click, setclick] = useState(false)
   const handleclick=()=>{
     setclick(!click)
@@ -47,9 +54,9 @@ const Home = ({navigation}) => {
   const heels=[{
     id:1,image:require("../image/images14.jpg")
   },{
-    id:2,image:require("../image/images14.jpg")
+    id:2,image:require("../image/images11.jpg")
   },{
-    id:3,image:require("../image/images14.jpg")
+    id:3,image:require("../image/images10.jpg")
   }]
 
   
@@ -70,8 +77,8 @@ const Home = ({navigation}) => {
     id:3,image:require("../image/images12.jpg")
   }]
   //const handleclick=()=>{heels.map((item)=>{(<TouchableOpacity key={item.id}><Image source={item.image} /></TouchableOpacity>)})
-    //setclick(!click)
-    //console.log(heels)}
+    //setclick(!click
+   // console.log(click)
   
   
     //  ([{image:[],  name:"",review:""}]);
@@ -83,16 +90,52 @@ const Home = ({navigation}) => {
   console.log(home)
     
   }
+  console.log(click)
   useEffect(() => {
     console.log(print)
-    console.log(click)
+    
   })
+const [imgActive, setimgActive] = useState(0)
+const handleimage=(nativeEvent)=>{
+if(nativeEvent){
+  const slide=Math.ceil(nativeEvent.contentOffset.x/nativeEvent.layoutMeasurement.width);
+  if(slide != imgActive){
+    setimgActive(slide);
+  }
+}
+}
+const footer =()=>{
+  return(
+    <View style={{
+      height:height*0.25,justifyContent:"space-between",
+      paddingHorizontal:20,
+    }}><View style={{
+      flexDirection:"row",justifyContent:"center",marginTop:20, }}>
+ {
+     heels.map((item)=>{
+return(
+  <View key={item.id} style={[styles.dot,imgActive===item && {backgroundColor:COLORS.white,width:25}]}>
+    <Button title="helo"/>
+  </View>
+ 
+)
+     })
+   }
+    </View>
 
+    </View>
+
+  )
+}
+  
   //const pressHandle=()=>{
     //navigation.push('Contact')  }
     return (
       <View style={styles.container}>
-        <View><TextInput placeholder="search for shoes"/></View>
+        
+          <View>
+            <TextInput placeholder="search for shoes"/></View>
+            <ScrollView>
         <View style={styles.minibtn}>
           
 <Button style={styles.minibutton} title="heels"  color="coral" onPress={handleclick}/>
@@ -103,14 +146,19 @@ const Home = ({navigation}) => {
   <View style={styles.imageview}>
 {click?
 <FlatList 
-keyExtractor={(item)=>item.id}
+onScroll={({nativeEvent})=>handleimage(nativeEvent)}
+pagingEnabled
+horizontal
 style={styles.imagev}
+contentContainerStyle={{height:height * 0.75}}
+keyExtractor={(item)=>item.id}
+showsHorizontalScrollIndicator={false}
 data={heels}
  renderItem={({item})=>{return(<TouchableOpacity>
-   <Image source={item.image}/>
- </TouchableOpacity>)}}/>
+   <Image style={{height:'75%',width,resizeMode:"contain"}} source={item.image} />
+ </TouchableOpacity>)}}/> 
  :null}
-
+<Icon name={"home"} size={35}/>
 {sneaker?
 <FlatList 
 keyExtractor={(item)=>item.id}
@@ -123,6 +171,9 @@ data={sneakers}
 
 {sandle?
 <FlatList 
+pagingEnabled
+horizontal
+showsHorizontalScrollIndicator={false}
 keyExtractor={(item)=>item.id}
 data={sandles}
 style={styles.imagev}
@@ -131,9 +182,18 @@ style={styles.imagev}
  </TouchableOpacity>)}}/>
  :null}
 </View>
- <View>
+
+ <View  >
    <Text>recent</Text>
+   <Image source={require("../image/images14.jpg")} style={styles.jsimage}/>
+            
+   <Image source={require("../image/images1.jpg")}/>
+   
+   <Image source={require("../image/images4.jpg")}/>
+
+   <Image source={require("../image/images6.jpg")}/>
  </View>
+ </ScrollView>
       </View>
         )
 }
@@ -193,7 +253,8 @@ minibtn:{
 flexDirection:"row",
 width:199,
 height:40,
-backgroundColor:"red"
+backgroundColor:"red",
+justifyContent:"space-between",
 },
 minibutton:{
 width:40,
@@ -206,17 +267,35 @@ fontSize:100,
 },
 imageview:{
   backgroundColor:"red",
-  flexDirection:"column",
   marginTop:20,
   height:250,
   width:280,
+  alignContent:"center",
+  
 },
-
 imagev:{
   width:240,
-  height:230,
+  //height:240,
   borderRadius:5,
-
+  margin:2,
+  flexDirection:"row",
+},
+wrap:{
+position:"absolute",
+bottom:0,
+flexDirection:"row",
+alignSelf:"center",
+},
+dotactive:{margin:3,
+  color:"red",
+},
+dot:{
+//margin:3,
+//color:"black"
+height:2.5,
+width:10,
+backgroundColor:"grey",
+marginHorizontal:3,
 }
 })
 export default Home

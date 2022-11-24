@@ -28,6 +28,7 @@ export const Getsum = ({navigation}) => {
           print.map((item)=>{return(
             <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>navigation.navigate("Contact",item)}>
               <Image source={item.image}/>
+              <Image source={{uri:item.image}}/>
               <Image source={require("./image/images14.jpg")} style={styles.jsimage}/>
               <View style={styles.text}>
               <Text >{item.price}</Text>
