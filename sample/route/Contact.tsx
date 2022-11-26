@@ -3,7 +3,8 @@ import { View,Text, TextInput ,StyleSheet, ScrollView } from "react-native"
 import axios from "axios";
 import { NavigationContainer } from '@react-navigation/native';
 //let myArray:string[]=[];
-const Contact = ({navigation}) => {
+const Contact = (props) => {
+  const item=props.route.params.item
   const [myArray, setmyArray] = useState([])
 /*
   useEffect(() => {
@@ -30,11 +31,14 @@ const Contact = ({navigation}) => {
        </View>
      )
           })}
-        </ScrollView>*/}
+        </ScrollView>
+        onPress={()=>navigation.navigate("Contact",item)}
+       {navigation.getParam("title")}
+       */}
 
-        <Text>{myArray}</Text>
-        <Text>{navigation.getParam("title")}</Text>
-          <Text>Contact</Text>
+        <Text></Text>
+        <Text>{item.title}</Text>
+          <Text>{item.description}</Text>
       </View>
     )
 }

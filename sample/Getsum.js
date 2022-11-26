@@ -4,8 +4,10 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import {Nav} from './Nav'
 import {Formik} from 'formik'
 import JSON from "./db.json"
+//import Hy from "./route/Hy"
 import {createStackNavigator} from  '@react-navigation/stack'
 import { View,Text,ScrollView, TextInput ,StyleSheet, Button, TouchableOpacity,Image } from "react-native"
+import { Hy } from "./route/Hy";
 
 
 export const Getsum = ({navigation}) => {
@@ -24,22 +26,10 @@ export const Getsum = ({navigation}) => {
         <View style={styles.container}>
                 <ScrollView>
           <View style={styles.jsvarra}>
+          
           {
           print.map((item)=>{return(
-            <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>navigation.navigate("Contact",item)}>
-              <Image source={item.image}/>
-              <Image source={{uri:item.image}}/>
-              <Image source={require("./image/images14.jpg")} style={styles.jsimage}/>
-              <View style={styles.text}>
-              <Text >{item.price}</Text>
-              <Text >{item.title}</Text>
-            </View>
-             <View style={styles.jsicon}>
-              <Icon  name={item.icon} color="yellow" size={20}/>
-              <Icon name={item.icon} color="green" size={20}/>
-              <Icon name={item.icon} color="green" size={20}/>
-           </View>
-            </TouchableOpacity>
+            <Hy key={Math.random()} item={item} navigation={navigation}/>
           )})}
           <View><Text>recently viewed</Text></View>
         </View>
