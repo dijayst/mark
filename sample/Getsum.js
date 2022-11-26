@@ -7,11 +7,12 @@ import JSON from "./db.json"
 //import Hy from "./route/Hy"
 import {createStackNavigator} from  '@react-navigation/stack'
 import { View,Text,ScrollView, TextInput ,StyleSheet, Button, TouchableOpacity,Image } from "react-native"
-import { Hy } from "./route/Hy";
+import { print } from "./route/variable";
+import { Heels } from "./route/Heels";
 
 
 export const Getsum = ({navigation}) => {
-  const print=JSON
+  //const print=JSON
  
     const [search, setsearch] = useState("")
     const handlechange=()=>{
@@ -21,15 +22,30 @@ export const Getsum = ({navigation}) => {
     
   //const pressHandle=()=>{    navigation.navigate('Contact')
   //navigation.push('Contact')}
+  //<Hy key={Math.random()} item={item} navigation={navigation}/>
+
 
     return (
         <View style={styles.container}>
+          
                 <ScrollView>
           <View style={styles.jsvarra}>
           
           {
           print.map((item)=>{return(
-            <Hy key={Math.random()} item={item} navigation={navigation}/>
+            
+<TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>navigation.navigate("Contact",{item})}>
+              <Image source={item.image}/>
+              <View style={styles.text}>
+              <Text >{item.price}</Text>
+              <Text >{item.title}</Text>
+            </View>
+             <View style={styles.jsicon}>
+              <Icon  name={item.icon} color="yellow" size={20}/>
+              <Icon name={item.icon} color="green" size={20}/>
+              <Icon name={item.icon} color="green" size={20}/>
+           </View>
+            </TouchableOpacity>
           )})}
           <View><Text>recently viewed</Text></View>
         </View>

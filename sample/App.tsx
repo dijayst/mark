@@ -10,9 +10,9 @@ import {createBottomTabNavigator} from  '@react-navigation/bottom-tabs'
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs"
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
-import Home from './route/Home';
+import {Home} from './route/Home';
 import Contact from "./route/Contact";
-import SearchBar from './route/SearchBar';
+import  SearchBar from './route/SearchBar';
 import {Router,Route, RouterProvider, Routes} from "react-router-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -55,7 +55,7 @@ export default function App({props:homeprops},{route,navigation}) {
       <SafeAreaProvider>
       <NavigationContainer>
    <AuthStack.Navigator >
-      <AuthStack.Screen name="Homeu" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="green" size={35}/>)}}/>
+      <AuthStack.Screen name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="green" size={35}/>)}}/>
       <AuthStack.Screen name="Getsum" component={Getsum}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
     
       <AuthStack.Screen name="Contact" component={Contact}  />
@@ -69,8 +69,9 @@ export default function App({props:homeprops},{route,navigation}) {
 
 const styles =StyleSheet.create({
   container:{
-    backgroundColor:'#fff',
+    backgroundColor:'#ffffff',
     flex:1,
+    color:"grey",
   paddingHorizontal:20
   },
   body:{

@@ -11,6 +11,11 @@ import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs
 //import { createAppContainer, createNavigationContainer } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 import Contact from '../route/Contact'
+//import  Heels from '../route/Heels'
+import { Heels } from './Heels';
+import { Sneaker } from './Sneaker';
+import { Sandle } from './Sandle';
+import { print } from './variable';
 //import images1 from '../image/images1'
 //import images4 from '../image/images4'
 //import images6 from '../image/images6'
@@ -33,9 +38,10 @@ const namelist=[{image:[],
        
 const AuthStacck= createStackNavigator();
 //const AuthStack= createBottomTabNavigator();
-const Home = ({navigation}) => {
+export const Home = ({navigation}) => {
  // const WIDTH=Dimensions.get("window").width;
   //const HEIGHT=Dimensions.get("window").height;
+  
 const {width,height}=Dimensions.get("window");
   const [click, setclick] = useState(false)
   const handleclick=()=>{
@@ -50,7 +56,7 @@ const {width,height}=Dimensions.get("window");
     setsneaker(!sandle)
   }
   const [home, sethome] = useState(namelist)
-  const print=JSON
+  //const print=JSON
   const heels=[{
     id:1,image:require("../image/images14.jpg")
   },{
@@ -138,28 +144,19 @@ return(
             <ScrollView>
         <View style={styles.minibtn}>
           
-<Button style={styles.minibutton} title="heels"  color="coral" onPress={handleclick}/>
-<Button style={styles.minibutton} title="sneaker" color="coral" onPress={handlessneaker}/>
-<Button style={styles.minibutton} title="sandle" color="coral" onPress={handlessandle}/>
+          <TouchableOpacity style={styles.minibutton} onPress={handleclick}><Text>heels</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}><Text>sneakers</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handleclick}><Text>heels</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}><Text>sneakers</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton}  onPress={handlessandle}><Text>sandle</Text></TouchableOpacity>
 </View >
 
-  <View style={styles.imageview}>
-{click?
-<FlatList 
-onScroll={({nativeEvent})=>handleimage(nativeEvent)}
-pagingEnabled
-horizontal
-style={styles.imagev}
-contentContainerStyle={{height:height * 0.75}}
-keyExtractor={(item)=>item.id}
-showsHorizontalScrollIndicator={false}
-data={heels}
- renderItem={({item})=>{return(<TouchableOpacity>
-   <Image style={{height:'75%',width,resizeMode:"contain"}} source={item.image} />
- </TouchableOpacity>)}}/> 
- :null}
-<Icon name={"home"} size={35}/>
-{sneaker?
+   <Heels  click={click} heels={heels} handleimage={handleimage} height={height}/>
+ <Sandle sandle={sandle} sandles={sandles} handleimage={handleimage} height={height} />
+<Sneaker sneaker={sneaker} sneakers={sneakers} handleimage={handleimage} height={height}/>
+
+
+{/*{sneaker?
 <FlatList 
 keyExtractor={(item)=>item.id}
 style={styles.imagev}
@@ -180,18 +177,18 @@ style={styles.imagev}
  renderItem={({item})=>{return(<TouchableOpacity>
    <Image source={item.image}/>
  </TouchableOpacity>)}}/>
- :null}
-</View>
+ :null}*/
+ }
 
- <View  >
+ <View style={styles.imageview}>
    <Text>recent</Text>
    <Image source={require("../image/images14.jpg")} style={styles.jsimage}/>
             
-   <Image source={require("../image/images1.jpg")}/>
+   <Image source={require("../image/images1.jpg")} style={styles.jsimage}/>
    
-   <Image source={require("../image/images4.jpg")}/>
+   <Image source={require("../image/images4.jpg")} style={styles.jsimage}/>
 
-   <Image source={require("../image/images6.jpg")}/>
+   <Image source={require("../image/images6.jpg")} style={styles.jsimage}/>
  </View>
  </ScrollView>
       </View>
@@ -200,7 +197,7 @@ style={styles.imagev}
 
 const styles=StyleSheet.create({
   container:{
-    backgroundColor:"white"
+   // backgroundColor:"white"
   },
   category:{
     marginBottom:50,
@@ -236,10 +233,12 @@ padding:5,
 
   },
   jsimage:{
-    width:114,
-    height:70,
+    width:214,
+    height:90,
     borderRadius:5,
     margin:-2,
+    padding:5,
+    marginTop:15,
   },
   text:{
     backgroundColor:"yellow",
@@ -253,21 +252,40 @@ minibtn:{
 flexDirection:"row",
 width:199,
 height:40,
-backgroundColor:"red",
+//backgroundColor:"red",
 justifyContent:"space-between",
+marginTop:15,
 },
 minibutton:{
-width:40,
-height:40,
-borderRadius:15,
-marginLeft:100,
+  backgroundColor:"white",
+width:55,
+height:90,
+borderRadius:25,
+marginLeft:10,
 padding:10,
 fontSize:100,
+},
 
+clickimage:{
+
+width:155,
+height:190,
+marginLeft:10,
+padding:10,
+fontSize:100,
 },
 imageview:{
   backgroundColor:"red",
-  marginTop:20,
+  marginTop:70,
+  height:250,
+  width:280,
+  alignContent:"center",
+  
+},
+
+imageview1:{
+ // backgroundColor:"red",
+  marginTop:70,
   height:250,
   width:280,
   alignContent:"center",
@@ -298,4 +316,4 @@ backgroundColor:"grey",
 marginHorizontal:3,
 }
 })
-export default Home
+//export default Home

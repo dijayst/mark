@@ -2,9 +2,10 @@ import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView } from "react-native"
 import axios from "axios";
 import { NavigationContainer } from '@react-navigation/native';
+//import { Heels } from './Heels';
 //let myArray:string[]=[];
 const Contact = (props) => {
-  const item=props.route.params.item
+  const {id,title,description}=props.route.params.item
   const [myArray, setmyArray] = useState([])
 /*
   useEffect(() => {
@@ -36,9 +37,10 @@ const Contact = (props) => {
        {navigation.getParam("title")}
        */}
 
-        <Text></Text>
-        <Text>{item.title}</Text>
-          <Text>{item.description}</Text>
+        <Text>{id}</Text>
+        <Text>{title}</Text>
+          <Text>{description}</Text>
+          
       </View>
     )
 }
