@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView,FlatList,TouchableOpacity,Image } from "react-native"
 
 //let myArray:string[]=[];
-export const Heels = ({click,heels,handleimage,height}) => {
+export const Heels = ({heels,handleimage,height}) => {
  // const {width,height}=Dimensions.get("window");
 
   console.log("hello")
@@ -10,7 +10,10 @@ export const Heels = ({click,heels,handleimage,height}) => {
     return (
         
       <View>
-        {click?
+        <View>   
+               <Text>Popular</Text> 
+        <TouchableOpacity><Text>See all</Text></TouchableOpacity>
+        </View>
 <FlatList 
 onScroll={({nativeEvent})=>handleimage(nativeEvent)}
 pagingEnabled
@@ -22,8 +25,7 @@ showsHorizontalScrollIndicator={false}
 data={heels}
  renderItem={({item})=>{return(<TouchableOpacity>
    <Image style={styles.clickimage} source={item.image} />
- </TouchableOpacity>)}}/> 
- :null}
+ </TouchableOpacity>)}}/>
       </View>
     )
 }

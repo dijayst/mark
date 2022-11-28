@@ -16,6 +16,10 @@ import { Heels } from './Heels';
 import { Sneaker } from './Sneaker';
 import { Sandle } from './Sandle';
 import { print } from './variable';
+import { heels } from './variable';
+//import minbutt from '../route/variable'
+import { minbutt } from './variable';
+
 //import images1 from '../image/images1'
 //import images4 from '../image/images4'
 //import images6 from '../image/images6'
@@ -57,14 +61,14 @@ const {width,height}=Dimensions.get("window");
   }
   const [home, sethome] = useState(namelist)
   //const print=JSON
-  const heels=[{
+  /*const heels=[{
     id:1,image:require("../image/images14.jpg")
   },{
     id:2,image:require("../image/images11.jpg")
   },{
     id:3,image:require("../image/images10.jpg")
   }]
-
+*/
   
   const sneakers=[{
     id:1,image:require("../image/images13.jpg")
@@ -141,19 +145,28 @@ return(
         
           <View>
             <TextInput placeholder="search for shoes"/></View>
-            <ScrollView>
-        <View style={styles.minibtn}>
-          
-          <TouchableOpacity style={styles.minibutton} onPress={handleclick}><Text>heels</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}><Text>sneakers</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton} onPress={handleclick}><Text>heels</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}><Text>sneakers</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton}  onPress={handlessandle}><Text>sandle</Text></TouchableOpacity>
-</View >
+            
+              <Image style={{borderRadius:5,width:270,marginLeft:15,}} source={require("../image/images2.jpg")}/>
 
-   <Heels  click={click} heels={heels} handleimage={handleimage} height={height}/>
- <Sandle sandle={sandle} sandles={sandles} handleimage={handleimage} height={height} />
-<Sneaker sneaker={sneaker} sneakers={sneakers} handleimage={handleimage} height={height}/>
+        <View style={styles.minibtn}>
+        <Text>categories</Text>
+         <TouchableOpacity style={styles.minibutton} onPress={handleclick}>
+           <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>       
+              <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/>
+          <Text>sneakers</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handleclick}>       
+               <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>      
+                <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sneakers</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.minibutton}  onPress={handlessandle}>        
+            <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sandle</Text></TouchableOpacity>
+</View >
+<ScrollView>
+   {click?<Heels   heels={heels} handleimage={handleimage} height={height}/>:null}
+ {sandle ?<Sandle  sandles={sandles} handleimage={handleimage} height={height} />:null}
+{sneaker? <Sneaker  sneakers={sneakers} handleimage={handleimage} height={height}/> :null}
 
 
 {/*{sneaker?
@@ -182,14 +195,20 @@ style={styles.imagev}
 
  <View style={styles.imageview}>
    <Text>recent</Text>
-   <Image source={require("../image/images14.jpg")} style={styles.jsimage}/>
-            
-   <Image source={require("../image/images1.jpg")} style={styles.jsimage}/>
-   
-   <Image source={require("../image/images4.jpg")} style={styles.jsimage}/>
-
-   <Image source={require("../image/images6.jpg")} style={styles.jsimage}/>
- </View>
+  
+<FlatList 
+pagingEnabled
+horizontal
+showsHorizontalScrollIndicator={false}
+keyExtractor={(item)=>item.id}
+data={minbutt}
+style={styles.imagev}
+ renderItem={({item})=>{return(<TouchableOpacity>
+   <Image source={item.image}/><Text>{item.title}</Text>
+   <Icon  name={item.icon} color="yellow" size={20}/>
+             
+ </TouchableOpacity>)}}/>
+  </View>
  </ScrollView>
       </View>
         )
@@ -197,7 +216,7 @@ style={styles.imagev}
 
 const styles=StyleSheet.create({
   container:{
-   // backgroundColor:"white"
+    backgroundColor:"white"
   },
   category:{
     marginBottom:50,
@@ -253,7 +272,7 @@ flexDirection:"row",
 width:199,
 height:40,
 //backgroundColor:"red",
-justifyContent:"space-between",
+//justifyContent:"space-between",
 marginTop:15,
 },
 minibutton:{
@@ -264,8 +283,15 @@ borderRadius:25,
 marginLeft:10,
 padding:10,
 fontSize:100,
+alignItems:"center",
 },
-
+minibutton1:{
+height:42,
+width:40,
+borderRadius:25,
+//marginLeft:-2,
+marginTop:-5,
+},
 clickimage:{
 
 width:155,

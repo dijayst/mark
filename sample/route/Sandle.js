@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView,FlatList,TouchableOpacity,Image } from "react-native"
 
 //let myArray:string[]=[];
-export const Sandle = ({sandle,sandles,handleimage,height}) => {
+export const Sandle = ({sandles,handleimage,height}) => {
  // const {width,height}=Dimensions.get("window");
 
   console.log("hello")
@@ -10,7 +10,7 @@ export const Sandle = ({sandle,sandles,handleimage,height}) => {
     return (
         
       <View>
-        {sandle?
+        
 <FlatList 
 onScroll={({nativeEvent})=>handleimage(nativeEvent)}
 pagingEnabled
@@ -23,7 +23,7 @@ data={sandles}
  renderItem={({item})=>{return(<TouchableOpacity>
    <Image style={styles.sandleimage} source={item.image} />
  </TouchableOpacity>)}}/> 
- :null}
+ 
       </View>
     )
 }
