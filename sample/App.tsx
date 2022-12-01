@@ -56,9 +56,6 @@ export default function App({props:homeprops},{route,navigation}) {
       <NavigationContainer>
    <AuthStack.Navigator  screenOptions={{headerShown:false}}>
       <AuthStack.Screen name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="green" size={35}/>)}}/>
-      <AuthStack.Screen name="Getsum" component={Getsum}  options={{tabBarIcon:()=>(<Icon name={"home"} color="yellow" size={35}/>)}}/>
-    
-      <AuthStack.Screen name="Contact"  component={Contact}  />
       <AuthStack.Screen name="profile" component={Contact}  />
      
      </AuthStack.Navigator>

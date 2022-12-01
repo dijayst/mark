@@ -150,3 +150,27 @@ title:"helo",
   },{
     id:3,image:require("../image/images10.jpg")
   }]
+
+
+  export const firstslide=[{
+    id:1,image:require("../image/downloadb.png")
+  },{
+    id:2,image:require("../image/downloadnm.jpeg")
+  },{
+    id:3,image:require("../image/downloadnm.jpeg")
+  }]
+export const sneakers=[{
+  id:1,image:require("../image/images13.jpg")
+},{
+  id:2,image:require("../image/images13.jpg")
+},{
+  id:3,image:require("../image/images13.jpg")
+}]
+
+export const sandles=[{
+  id:1,image:require("../image/images12.jpg")
+},{
+  id:2,image:require("../image/images12.jpg")
+},{
+  id:3,image:require("../image/images12.jpg")
+}]

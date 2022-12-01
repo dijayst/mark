@@ -17,8 +17,10 @@ import { Sneaker } from './Sneaker';
 import { Sandle } from './Sandle';
 import { print } from './variable';
 import { heels } from './variable';
-//import minbutt from '../route/variable'
+import {firstslide} from './variable'
 import { minbutt } from './variable';
+import { sandles } from './variable';
+import { sneakers } from './variable';
 
 //import images1 from '../image/images1'
 //import images4 from '../image/images4'
@@ -29,6 +31,8 @@ import { minbutt } from './variable';
 
 import { Item } from 'react-native-paper/lib/typescript/components/List/List'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { Recent } from './Recent'
+import { Getsum } from '../Getsum'
 
 const namelist=[{image:[],
   name:"",
@@ -70,22 +74,7 @@ const {width,height}=Dimensions.get("window");
   }]
 */
   
-  const sneakers=[{
-    id:1,image:require("../image/images13.jpg")
-  },{
-    id:2,image:require("../image/images13.jpg")
-  },{
-    id:3,image:require("../image/images13.jpg")
-  }]
-
   
-  const sandles=[{
-    id:1,image:require("../image/images12.jpg")
-  },{
-    id:2,image:require("../image/images12.jpg")
-  },{
-    id:3,image:require("../image/images12.jpg")
-  }]
   //const handleclick=()=>{heels.map((item)=>{(<TouchableOpacity key={item.id}><Image source={item.image} /></TouchableOpacity>)})
     //setclick(!click
    // console.log(click)
@@ -144,16 +133,17 @@ return(
       <View style={styles.container}>
         
           <View>
-            <TextInput placeholder="search for shoes"/></View>
+            <TextInput placeholder="search for shoes"/>
             
-              <Image style={{borderRadius:5,width:270,marginLeft:15,}} source={require("../image/images2.jpg")}/>
-
+            <Text >categories</Text>
+       
+            </View>
+           
         <View style={styles.minibtn}>
-        <Text>categories</Text>
          <TouchableOpacity style={styles.minibutton} onPress={handleclick}>
-           <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
+           <Image source={require("../image/images.jpeg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
           <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>       
-              <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/>
+              <Image source={require("../image/images18.jpg")}style={styles.minibutton1}/>
           <Text>sneakers</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.minibutton} onPress={handleclick}>       
@@ -163,9 +153,11 @@ return(
         <TouchableOpacity style={styles.minibutton}  onPress={handlessandle}>        
             <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sandle</Text></TouchableOpacity>
 </View >
-<ScrollView>
-   {click?<Heels   heels={heels} handleimage={handleimage} height={height}/>:null}
- {sandle ?<Sandle  sandles={sandles} handleimage={handleimage} height={height} />:null}
+
+  <View style={{marginTop:60}}>
+  <ScrollView>
+     {click?<Heels  heels={heels} handleimage={handleimage} height={height}/>:null}
+ {sandle ?<Sandle sandles={sandles} handleimage={handleimage} height={height} />:null}
 {sneaker? <Sneaker  sneakers={sneakers} handleimage={handleimage} height={height}/> :null}
 
 
@@ -190,26 +182,15 @@ style={styles.imagev}
  renderItem={({item})=>{return(<TouchableOpacity>
    <Image source={item.image}/>
  </TouchableOpacity>)}}/>
- :null}*/
+ :null}
+ <View style={styles.imageview}></View>
+ 
+ */
  }
 
- <View style={styles.imageview}>
-   <Text>recent</Text>
-  
-<FlatList 
-pagingEnabled
-horizontal
-showsHorizontalScrollIndicator={false}
-keyExtractor={(item)=>item.id}
-data={minbutt}
-style={styles.imagev}
- renderItem={({item})=>{return(<TouchableOpacity>
-   <Image source={item.image}/><Text>{item.title}</Text>
-   <Icon  name={item.icon} color="yellow" size={20}/>
-             
- </TouchableOpacity>)}}/>
-  </View>
- </ScrollView>
+<Getsum navigation={navigation}/>
+<Recent/>
+ </ScrollView></View>
       </View>
         )
 }
@@ -273,7 +254,8 @@ width:199,
 height:40,
 //backgroundColor:"red",
 //justifyContent:"space-between",
-marginTop:15,
+//marginTop:-175,
+//marginLeft:-5,
 },
 minibutton:{
   backgroundColor:"white",
@@ -286,8 +268,8 @@ fontSize:100,
 alignItems:"center",
 },
 minibutton1:{
-height:42,
-width:40,
+height:60,
+width:48,
 borderRadius:25,
 //marginLeft:-2,
 marginTop:-5,
@@ -301,8 +283,8 @@ padding:10,
 fontSize:100,
 },
 imageview:{
-  backgroundColor:"red",
-  marginTop:70,
+//backgroundColor:"red",
+  marginTop:-90,
   height:250,
   width:280,
   alignContent:"center",

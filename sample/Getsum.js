@@ -11,7 +11,7 @@ import { print } from "./route/variable";
 import { Heels } from "./route/Heels";
 
 
-export const Getsum = ({navigation}) => {
+export const Getsum = (props) => {
   //const print=JSON
  
     const [search, setsearch] = useState("")
@@ -34,7 +34,7 @@ export const Getsum = ({navigation}) => {
           {
           print.map((item)=>{return(
             
-<TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>navigation.navigate("Contact",{item})}>
+<TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>props.navigation.navigate("Contact",{item})}>
               <Image source={item.image}style={styles.jsimage}/>
               <View style={styles.text}>
               <Text >{item.price}</Text>
@@ -47,7 +47,7 @@ export const Getsum = ({navigation}) => {
            </View>
             </TouchableOpacity>
           )})}
-          <View><Text>recently viewed</Text></View>
+    
         </View>
 </ScrollView>
       
