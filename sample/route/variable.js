@@ -1,6 +1,6 @@
 export const print=[
   {id:1,
-title:"helo",
+title:"Women Red heel sandle",
 description:"trending heels shoe, with great quality varies in color and size",
 Cart:"Add to Cart",
 Instock :true,

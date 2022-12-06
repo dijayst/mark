@@ -12,68 +12,28 @@ import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs
 import { NavigationContainer } from '@react-navigation/native';
 import {Home} from './route/Home';
 import Contact from "./route/Contact";
-//import Cart from "./route/Cart";
 import  SearchBar from './route/SearchBar';
 import {Router,Route, RouterProvider, Routes} from "react-router-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { CardAnimationContext, HeaderTitle } from 'react-navigation-stack';
-import { Heels } from './route/Heels';
-import { Cart } from './route/Heels';
-import { Profile } from './route/Heels';
-//import  Header  from "./route/Header";
-//import  Header  from "./route/Header";
+import { HeaderTitle } from 'react-navigation-stack';
+
 
 //const AuthStack=createBottomTabNavigator();
 //const AuthStack= createMaterialTopTabNavigator();
 //const AuthStack= createStackNavigator();
 const AuthStack= createBottomTabNavigator();
-export default function App({route,navigation}) {
-  const [name1, setname1] = useState([
-    {name: 'ebun ', key:'1'},
-    {name: 'dushen', key:'2'},
-    {name: 'sally', key:'3'},
-    {name: 'dami', key:'4'},
-    {name: 'ayo', key:5},
-    {name: 'ebun ', key:'6'},
-    {name: 'dushen', key:'7'},
-    {name: 'sally', key:'8'},
-    {name: 'dami', key:'9'}
-  ]);
-  const pressHandler=(key)=>{
-    console.log(key)
-    setname1((prevname)=>{
-      return(
-        prevname.filter((person)=>person.key!=key)
-      )
-    })
-  }
-  /* */
-  useEffect(() => {
-   console.log("why nah")
-  },)
+export default function Header() {
   return (
     <View style={styles.container}>
-      <View>
-        
-      </View>
-      <SafeAreaProvider>
-      <NavigationContainer  >
-   <AuthStack.Navigator >
-      <AuthStack.Screen  name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="green" size={35}/>),headerTitle:()=>(<Heels navigation={navigation}/>),headerStyle:{backgroundColor:"yellow"}}}/>
-      <AuthStack.Screen options={{tabBarButton:()=>null,headerShown:false}} name="Contact" component={Contact}  />
-      <AuthStack.Screen options={{tabBarButton:()=>null,}} name="Cart" component={Cart}  />
-      <AuthStack.Screen name="Profile" component={Profile} options={{headerTitle:"profile",}} />
-      
-     </AuthStack.Navigator>
-     </NavigationContainer>
-    </SafeAreaProvider>
-  </View>
+       <TextInput placeholder="search for shoes" style={{}}/>
+     <Icon name={"star"} color="green" size={35}/>
+       </View>
     );
 }
 
 const styles =StyleSheet.create({
   container:{
-    backgroundColor:"green",
+    backgroundColor:"blue",
     flex:1,
     color:"grey",
   paddingHorizontal:20

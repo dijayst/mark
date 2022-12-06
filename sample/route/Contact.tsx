@@ -1,12 +1,19 @@
 import React, { useState,useEffect } from 'react'
-import { View,Text,Image, TextInput ,StyleSheet, ScrollView } from "react-native"
+import { View,Text,Image, TextInput ,StyleSheet, ScrollView, TouchableOpacity } from "react-native"
 import axios from "axios";
+import Icon, { Button } from 'react-native-vector-icons/FontAwesome';
 import { NavigationContainer } from '@react-navigation/native';
 //import { Heels } from './Heels';
 //let myArray:string[]=[];
-const Contact = (props) => {
-  const {id,title,description,image}=props.route.params.item
-  const [myArray, setmyArray] = useState([])
+const Contact = (props,navigation) => {
+  const {id,title,description,Instock,image,icon,Cart,price}=props.route.params.item
+  const [cart, setcart] = useState([])
+  const handleimage=()=>{
+    
+    const newimage={...props.route.params.item}
+    setcart(cart=>[...cart,newimage])
+    navigation.navigate("Cart",{cart})
+  }
 /*
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts").then(res=>{
@@ -21,6 +28,7 @@ const Contact = (props) => {
     return (
         
       <View>
+        <ScrollView>
      {/*   <ScrollView>
           {myArray.map((item)=>{
      return(
@@ -38,13 +46,76 @@ const Contact = (props) => {
        */}
 
         <Text>{id}</Text>
-        <Image source={image} />
-             
-        <Text>{title}</Text>
+        <Image source={image} style={{width:260,height:290,justifyContent:"center"}} />
+        <Text style={{fontSize:21,fontWeight:"bold",}}>{title}</Text>
+       
+        <View style={styles.jsicon}>
+        <Icon name={icon} color="green" size={20}/>
+        <Icon name={icon} color="green" size={20}/>
+        <Icon name={icon} color="green" size={20}/>
+        <Icon name={icon} color="green" size={20}/>
+        <Icon name={icon} color="green" size={20}/>
+        <Text>0Review</Text>
+        </View>
+       <View style={{display:"flex",flexDirection:"row"}}>
+          <Text style={{justifyContent:"flex-start"}}>{Instock} out of stock</Text> 
+          <Text style={{marginLeft:170,fontSize:15,fontWeight:"bold"}}>{price}</Text>
+        </View>
+<View></View>
           <Text>{description}</Text>
-          
+          <View></View>
+      <TouchableOpacity style={{backgroundColor:"green"}} onPress={handleimage}><Text>{Cart}</Text></TouchableOpacity>
+          </ScrollView>
       </View>
     )
 }
 
 export default Contact
+
+const styles=StyleSheet.create({
+  container:{
+    backgroundColor:"green"
+  },
+  category:{
+    marginBottom:50,
+    marginLeft:60,
+  fontSize:30,
+  },
+ jsvarra:{
+display:"flex",
+flexWrap:"wrap",
+flexDirection:"row",
+justifyContent:"center",
+},
+jsicon:{
+  display:"flex",
+  flexWrap:"wrap",
+  flexDirection:"row",
+  justifyContent:"flex-start",
+  },
+  jstouch:{
+backgroundColor:"white",
+width:120,
+height:130,
+borderRadius:5,
+marginTop:17,
+marginLeft:17,
+padding:5,
+  },
+  jsimage:{
+    width:114,
+    height:70,
+    borderRadius:5,
+    margin:-2,
+   // alignItems:"center",
+  },
+  text:{
+    backgroundColor:"white",
+    height:45,
+    borderRadius:5,
+    margin:-2,
+    width:114,
+    marginTop:3,
+  },
+
+})

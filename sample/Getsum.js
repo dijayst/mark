@@ -27,7 +27,6 @@ export const Getsum = (props) => {
 
     return (
         <View style={styles.container}>
-          
                 <ScrollView>
           <View style={styles.jsvarra}>
           
@@ -36,14 +35,13 @@ export const Getsum = (props) => {
             
 <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>props.navigation.navigate("Contact",{item})}>
               <Image source={item.image}style={styles.jsimage}/>
-              <View style={styles.text}>
-              <Text >{item.price}</Text>
-              <Text >{item.title}</Text>
-            </View>
+              <Text style={{fontWeight:"bold",color:"black",fontSize:16}}>{item.price}</Text>
+              <Text  style={{color:"grey",fontSize:12,height:17}}>{item.title}</Text>
+          
              <View style={styles.jsicon}>
-              <Icon  name={item.icon} color="yellow" size={20}/>
-              <Icon name={item.icon} color="green" size={20}/>
-              <Icon name={item.icon} color="green" size={20}/>
+              <Icon  name={item.icon} color="yellow" size={17}/>
+              <Icon name={item.icon} color="green" size={17}/>
+              <Icon name={item.icon} color="green" size={17}/>
            </View>
             </TouchableOpacity>
           )})}
@@ -79,7 +77,7 @@ const styles =StyleSheet.create({
 
 const styles=StyleSheet.create({
   container:{
-    backgroundColor:"white"
+    backgroundColor:"green"
   },
   category:{
     marginBottom:50,
@@ -104,23 +102,23 @@ flexDirection:"row",
 
 },
   jstouch:{
-backgroundColor:"red",
+backgroundColor:"white",
 width:120,
-height:120,
+height:130,
 borderRadius:5,
 marginTop:17,
 marginLeft:17,
 padding:5,
-
   },
   jsimage:{
     width:114,
     height:70,
     borderRadius:5,
     margin:-2,
+   // alignItems:"center",
   },
   text:{
-    backgroundColor:"yellow",
+    backgroundColor:"white",
     height:45,
     borderRadius:5,
     margin:-2,

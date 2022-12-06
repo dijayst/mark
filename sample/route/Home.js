@@ -25,10 +25,7 @@ import { sneakers } from './variable';
 //import images1 from '../image/images1'
 //import images4 from '../image/images4'
 //import images6 from '../image/images6'
-
 //import { Getsum } from '../Getsum'
-
-
 import { Item } from 'react-native-paper/lib/typescript/components/List/List'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { Recent } from './Recent'
@@ -132,36 +129,14 @@ return(
     return (
       <View style={styles.container}>
         
-          <View>
-            <TextInput placeholder="search for shoes"/>
-            
+           <ScrollView>
+      
+
+{/*
+
             <Text >categories</Text>
        
-            </View>
-           
-        <View style={styles.minibtn}>
-         <TouchableOpacity style={styles.minibutton} onPress={handleclick}>
-           <Image source={require("../image/images.jpeg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>       
-              <Image source={require("../image/images18.jpg")}style={styles.minibutton1}/>
-          <Text>sneakers</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton} onPress={handleclick}>       
-               <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>      
-                <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sneakers</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.minibutton}  onPress={handlessandle}>        
-            <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sandle</Text></TouchableOpacity>
-</View >
-
-  <View style={{marginTop:60}}>
-  <ScrollView>
-     {click?<Heels  heels={heels} handleimage={handleimage} height={height}/>:null}
- {sandle ?<Sandle sandles={sandles} handleimage={handleimage} height={height} />:null}
-{sneaker? <Sneaker  sneakers={sneakers} handleimage={handleimage} height={height}/> :null}
-
-
-{/*{sneaker?
+{sneaker?
 <FlatList 
 keyExtractor={(item)=>item.id}
 style={styles.imagev}
@@ -185,19 +160,47 @@ style={styles.imagev}
  :null}
  <View style={styles.imageview}></View>
  
- */
- }
+
+
+
+
+
+
+
+   <View style={styles.minibtn}>
+         <TouchableOpacity style={styles.minibutton} onPress={handleclick}>
+           <Image source={require("../image/images.jpeg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>       
+              <Image source={require("../image/images18.jpg")}style={styles.minibutton1}/>
+          <Text>sneakers</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handleclick}>       
+               <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>heels</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.minibutton} onPress={handlessneaker}>      
+                <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sneakers</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.minibutton}  onPress={handlessandle}>        
+            <Image source={require("../image/images13.jpg")}style={styles.minibutton1}/><Text>sandle</Text></TouchableOpacity>
+</View >
+
+  <View style={{marginTop:60}}>
+  <ScrollView>
+     {click?<Heels  heels={heels} handleimage={handleimage} height={height}/>:null}
+ {sandle ?<Sandle sandles={sandles} handleimage={handleimage} height={height} />:null}
+{sneaker? <Sneaker  sneakers={sneakers} handleimage={handleimage} height={height}/> :null}
+
+ */}
 
 <Getsum navigation={navigation}/>
+
 <Recent/>
- </ScrollView></View>
+ </ScrollView>
       </View>
         )
 }
 
 const styles=StyleSheet.create({
   container:{
-    backgroundColor:"white"
+    backgroundColor:"yellow"
   },
   category:{
     marginBottom:50,

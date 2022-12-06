@@ -1,43 +1,75 @@
 import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView,FlatList,TouchableOpacity,Image } from "react-native"
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {createStackNavigator} from  '@react-navigation/stack'
 //let myArray:string[]=[];
-export const Heels = ({heels,handleimage,height}) => {
+export const Heels = (props) => {
  // const {width,height}=Dimensions.get("window");
+
+  //navigation.push('Contact')
+  //<Hy key={Math.random()} item={item} navigation={navigation}/>
 
   console.log("hello")
   
     return (
         
-      <View>
-        <View>   
-               <Text>Popular</Text> 
-        <TouchableOpacity><Text>See all</Text></TouchableOpacity>
-        </View>
-<FlatList 
-onScroll={({nativeEvent})=>handleimage(nativeEvent)}
-pagingEnabled
-horizontal
-style={styles.imagev}
-contentContainerStyle={{height:height * 0.75}}
-keyExtractor={(item)=>item.id}
-showsHorizontalScrollIndicator={false}
-data={heels}
- renderItem={({item})=>{return(<TouchableOpacity>
-   <Image style={styles.clickimage} source={item.image} />
- </TouchableOpacity>)}}/>
+      <View style={styles.container}>
+          <TextInput placeholder="search for shoes" style={{width:200,backgroundColor:"red"}}/>
+     <Icon name={"star"} color="green" size={35} onPress={()=>props.navigation.navigate("Cart")}/>
+     
       </View>
     )
 }
 
 
+export const Cart = (props) => {
+  // const {width,height}=Dimensions.get("window");
+ 
+   console.log("hello")
+   
+     return (
+         
+       <View style={styles.container}>
+           <TextInput placeholder="search for shoes" style={{width:200,backgroundColor:"red"}}/>
+      <Icon name={"star"} color="green" size={35} />
+      {props.cart}
+      
+       </View>
+     )
+ }
+ 
+ 
 
 
+ 
+export const Profile = () => {
+  // const {width,height}=Dimensions.get("window");
+ 
+   console.log("hello")
+   
+     return (
+         
+       <View style={styles.container}>
+         <TextInput placeholder="profilepic"/>
+          <TextInput placeholder="firstname"/>
+          <TextInput placeholder="lastname"/>
+
+       </View>
+     )
+ }
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 const styles=StyleSheet.create({
   container:{
-    backgroundColor:"white"
+    //backgroundColor:"white",
+    display:"flex",
+    flexDirection:"row"
   },
   category:{
     marginBottom:50,
