@@ -59,7 +59,7 @@ export default function App({route,navigation}) {
       <SafeAreaProvider>
       <NavigationContainer  >
    <AuthStack.Navigator >
-      <AuthStack.Screen  name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="green" size={35}/>),headerTitle:()=>(<Heels navigation={navigation}/>),headerStyle:{backgroundColor:"yellow"}}}/>
+      <AuthStack.Screen  name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="#40ac01" on size={35}/>),headerTitle:()=>(<Heels navigation={navigation}/>),headerStyle:{backgroundColor:"#40ac01"}}}/>
       <AuthStack.Screen options={{tabBarButton:()=>null,headerShown:false}} name="Contact" component={Contact}  />
       <AuthStack.Screen options={{tabBarButton:()=>null,}} name="Cart" component={Cart}  />
       <AuthStack.Screen name="Profile" component={Profile} options={{headerTitle:"profile",}} />
@@ -73,7 +73,7 @@ export default function App({route,navigation}) {
 
 const styles =StyleSheet.create({
   container:{
-    backgroundColor:"green",
+    backgroundColor:"#ecf8e4",
     flex:1,
     color:"grey",
   paddingHorizontal:20

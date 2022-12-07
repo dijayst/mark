@@ -35,13 +35,13 @@ export const Getsum = (props) => {
             
 <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>props.navigation.navigate("Contact",{item})}>
               <Image source={item.image}style={styles.jsimage}/>
-              <Text style={{fontWeight:"bold",color:"black",fontSize:16}}>{item.price}</Text>
+              <Text style={{fontWeight:"bold",color:"#525252",fontSize:16}}>{item.price}</Text>
               <Text  style={{color:"grey",fontSize:12,height:17}}>{item.title}</Text>
           
              <View style={styles.jsicon}>
               <Icon  name={item.icon} color="yellow" size={17}/>
-              <Icon name={item.icon} color="green" size={17}/>
-              <Icon name={item.icon} color="green" size={17}/>
+              <Icon name={item.icon} color="yellow" size={17}/>
+              <Icon name={item.icon} color="yellow" size={17}/>
            </View>
             </TouchableOpacity>
           )})}
@@ -77,7 +77,7 @@ const styles =StyleSheet.create({
 
 const styles=StyleSheet.create({
   container:{
-    backgroundColor:"green"
+    backgroundColor:"#ecf9e0"
   },
   category:{
     marginBottom:50,

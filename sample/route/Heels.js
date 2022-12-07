@@ -2,10 +2,11 @@ import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView,FlatList,TouchableOpacity,Image } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {createStackNavigator} from  '@react-navigation/stack'
+import { useRoute } from '@react-navigation/native';
 //let myArray:string[]=[];
 export const Heels = (props) => {
  // const {width,height}=Dimensions.get("window");
-
+const location=props.cart;
   //navigation.push('Contact')
   //<Hy key={Math.random()} item={item} navigation={navigation}/>
 
@@ -14,27 +15,31 @@ export const Heels = (props) => {
     return (
         
       <View style={styles.container}>
-          <TextInput placeholder="search for shoes" style={{width:200,backgroundColor:"red"}}/>
-     <Icon name={"star"} color="green" size={35} onPress={()=>props.navigation.navigate("Cart")}/>
-     
+          <TextInput placeholder="search for shoes" style={{width:200,backgroundColor:"#ecf9e0"}}/>
+     <Icon name={"star"} color="#ecf9e0" size={35} onPress={()=>props.navigation.navigate("Cart")}/>
+     <Text></Text>
+  
+     {location}
       </View>
     )
 }
 
 
+
 export const Cart = (props) => {
   // const {width,height}=Dimensions.get("window");
- 
-   console.log("hello")
+  
+  const [{id,title,description,Instock,image,icon,Cart,price}]=props.route.cart
+  
+   console.log(props.route.cart)
    
      return (
-         
        <View style={styles.container}>
-           <TextInput placeholder="search for shoes" style={{width:200,backgroundColor:"red"}}/>
-      <Icon name={"star"} color="green" size={35} />
-      {props.cart}
-      
-       </View>
+         <Text>{id}</Text>
+         <Text>{description}</Text>
+          
+</View>
+              
      )
  }
  

@@ -200,7 +200,7 @@ style={styles.imagev}
 
 const styles=StyleSheet.create({
   container:{
-    backgroundColor:"yellow"
+    backgroundColor:"#ecf9e0"
   },
   category:{
     marginBottom:50,
