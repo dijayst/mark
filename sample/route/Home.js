@@ -47,6 +47,7 @@ export const Home = ({navigation}) => {
  // const WIDTH=Dimensions.get("window").width;
   //const HEIGHT=Dimensions.get("window").height;
   
+
 const {width,height}=Dimensions.get("window");
   const [click, setclick] = useState(false)
   const handleclick=()=>{

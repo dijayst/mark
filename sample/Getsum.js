@@ -14,11 +14,6 @@ import { Heels } from "./route/Heels";
 export const Getsum = (props) => {
   //const print=JSON
  
-    const [search, setsearch] = useState("")
-    const handlechange=()=>{
-        setsearch(search)
-    }
-
     
   //const pressHandle=()=>{    navigation.navigate('Contact')
   //navigation.push('Contact')}
@@ -30,8 +25,7 @@ export const Getsum = (props) => {
                 <ScrollView>
           <View style={styles.jsvarra}>
           
-          {
-          print.map((item)=>{return(
+          {print.map((item)=>{return(
             
 <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>props.navigation.navigate("Contact",{item})}>
               <Image source={item.image}style={styles.jsimage}/>

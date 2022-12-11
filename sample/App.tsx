@@ -59,9 +59,9 @@ export default function App({route,navigation}) {
       <SafeAreaProvider>
       <NavigationContainer  >
    <AuthStack.Navigator >
-      <AuthStack.Screen  name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="#40ac01" on size={35}/>),headerTitle:()=>(<Heels navigation={navigation}/>),headerStyle:{backgroundColor:"#40ac01"}}}/>
+      <AuthStack.Screen  name="Home" component={Home} options={{tabBarIcon:()=>(<Icon name={"home"} color="#40ac01"  size={35}/>),headerTitle:()=>(<Heels navigation={navigation}/>),headerStyle:{backgroundColor:"#40ac01"}}}/>
       <AuthStack.Screen options={{tabBarButton:()=>null,headerShown:false}} name="Contact" component={Contact}  />
-      <AuthStack.Screen options={{tabBarButton:()=>null,}} name="Cart" component={Cart}  />
+      <AuthStack.Screen options={{tabBarButton:()=>null,}}  name="Cart" component={Cart}  />
       <AuthStack.Screen name="Profile" component={Profile} options={{headerTitle:"profile",}} />
       
      </AuthStack.Navigator>
