@@ -2,33 +2,27 @@ import React, { useState,useEffect } from 'react'
 import { View,Text, TextInput ,StyleSheet, ScrollView,FlatList,TouchableOpacity,Image } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {createStackNavigator} from  '@react-navigation/stack'
+import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 import { print } from './variable'
 //let myArray:string[]=[];
 export const Heels = (props) => {
  // const {width,height}=Dimensions.get("window");
-const location=props.cart;
+//const location=props.cart;
+const navigation=useNavigation()
   //navigation.push('Contact')
   //<Hy key={Math.random()} item={item} navigation={navigation}/>
-
+  const pressHandle=()=>{ navigation.navigate('Cart')}
   console.log("hello")
   
-  const [search, setsearch] = useState("")c
-  const handlechange=(e)=>{
-      setsearch(e.target.value)
-  console.log(search)
-    }
-
 
     return (
         
       <View style={styles.container}>
-    { print.filter((val)=>{return(
-search===""||val.toLowerCase().includes(search.toLowerCase())
-?val:null)})}
-          <TextInput value={search} onChangeText={handlechange} placeholder="search for shoes" style={{width:200,backgroundColor:"#ecf9e0"}}/>
-     <Icon name={"star"} color="#ecf9e0" size={35} onPress={()=>props.navigation.navigate("Cart")}/>
-     
+      
+          <TextInput  onChangeText={props.handlechange} placeholder="search for shoes" style={{width:200,backgroundColor:"#ecf9e0",marginLeft:7}}/>
+     <Icon name="shopping-cart" color="#ecf9e0" size={35} onPress={pressHandle}/>
+   
       </View>
     )
 }
@@ -36,17 +30,23 @@ search===""||val.toLowerCase().includes(search.toLowerCase())
 
 
 export const Cart = (props) => {
+  const route=useRoute();
   // const {width,height}=Dimensions.get("window");
   
-  //const [{id,title,description,Instock,image,icon,Cart,price}]=props.route.cart
-  
+  //const [{newimage}]=props.route.params.newimage
+  const [cart, setcart] = useState([])
+  const handleimage=()=>{
+    console.log("yephjjh")
+   // const newimage={...props.route.params.item}
+    setcart(cart=>[...cart,props.newimage])
+ // props.navigation.navigate("Cart",{...newimage})
+  }
+
    //console.log(props.route.cart)
    
      return (
        <View style={styles.container}>
-         <Text>id</Text>
-         <Text>description</Text>
-          
+        <Text>{route.params.comment}</Text>  
 </View>
               
      )
@@ -83,7 +83,8 @@ const styles=StyleSheet.create({
   container:{
     //backgroundColor:"white",
     display:"flex",
-    flexDirection:"row"
+    flexDirection:"row",
+    justifyContent:"space-between"
   },
   category:{
     marginBottom:50,

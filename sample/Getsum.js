@@ -19,13 +19,20 @@ export const Getsum = (props) => {
   //navigation.push('Contact')}
   //<Hy key={Math.random()} item={item} navigation={navigation}/>
 
+  const [search, setsearch] = useState("")
+  const handlechange=(value)=>{
+      setsearch(value)
+  console.log(search)
+    }
+const dontshow=false;
 
     return (
         <View style={styles.container}>
                 <ScrollView>
           <View style={styles.jsvarra}>
-          
-          {print.map((item)=>{return(
+            {dontshow ?  <Heels search={search} handlechange={handlechange}/>:null}
+          {print.filter((val)=>{return(
+            search===""||val.title.toLowerCase().includes(search.toLowerCase()))}).map((item)=>{return(
             
 <TouchableOpacity  style={styles.jstouch} key={item.id} onPress={()=>props.navigation.navigate("Contact",{item})}>
               <Image source={item.image}style={styles.jsimage}/>
@@ -34,8 +41,8 @@ export const Getsum = (props) => {
           
              <View style={styles.jsicon}>
               <Icon  name={item.icon} color="yellow" size={17}/>
-              <Icon name={item.icon} color="yellow" size={17}/>
-              <Icon name={item.icon} color="yellow" size={17}/>
+              <Icon name={item.icon1} color="yellow" size={17}/>
+              <Icon name={item.icon2} color="yellow" size={17}/>
            </View>
             </TouchableOpacity>
           )})}
@@ -106,7 +113,7 @@ padding:5,
   },
   jsimage:{
     width:114,
-    height:70,
+    height:50,
     borderRadius:5,
     margin:-2,
    // alignItems:"center",
